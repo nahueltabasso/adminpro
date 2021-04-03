@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 import { IncrementadorComponent } from './incrementador/incrementador.component';
 
-
-
 @NgModule({
-  declarations: [IncrementadorComponent],
+  declarations: [
+    IncrementadorComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule

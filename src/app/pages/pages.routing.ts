@@ -6,16 +6,20 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { GraficaOneComponent } from './grafica-one/grafica-one.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromesaComponent } from './promesa/promesa.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 const routes: Routes = [
     { 
         path: 'dashboard', 
         component: PagesComponent,
         children: [
-            { path: '', component: DashboardComponent },
-            { path: 'progress', component: ProgressComponent },
-            { path: 'grafica1', component: GraficaOneComponent },      
-            { path: 'account-settings', component: AccountSettingsComponent },          
+            { path: '', component: DashboardComponent, data: { titulo: 'Dasboard' } },
+            { path: 'progress', component: ProgressComponent, data: { titulo: 'Progress' } },
+            { path: 'grafica1', component: GraficaOneComponent, data: { titulo: 'Grafica Nro 1' } },      
+            { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajuste de Cuenta' } },     
+            { path: 'promesas', component: PromesaComponent, data: { titulo: 'Promesa' } },               
+            { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RXJS' }  },               
         ]
     },
 ];

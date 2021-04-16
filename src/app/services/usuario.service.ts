@@ -16,4 +16,8 @@ export class UsuarioService {
   registrarUsuario(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(this.endpoint, usuario);
   }
+
+  updatePerfil(usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(this.endpoint + '/' + usuario.uid, usuario, { headers: { 'Authorization': localStorage.getItem('auth_token') } });
+  }
 }

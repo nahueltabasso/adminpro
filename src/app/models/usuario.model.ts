@@ -1,3 +1,7 @@
+import { environment } from "src/environments/environment";
+
+const url = environment.based_endpoint
+
 export class Usuario {
     uid: string;
     nombre: string;

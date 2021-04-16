@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LoginRequestDTO } from '../models/usuario.model';
+import { LoginRequestDTO, Usuario } from '../models/usuario.model';
 import { catchError, map, tap } from 'rxjs/operators';
 
 declare const gapi: any;
@@ -13,6 +13,7 @@ declare const gapi: any;
 export class AuthService {
   
   auth2: any;
+  usuario: Usuario = new Usuario();
   endpoint = environment.based_endpoint;
 
   constructor(private http: HttpClient) {
@@ -47,10 +48,12 @@ export class AuthService {
   validarToken(): Observable<boolean> {
     const token = localStorage.getItem('auth_token') || '';
     return this.http.get(this.endpoint + '/login/refresh-token', { headers : { 'Authorization' : token }}).pipe(
-      tap((data: any) => {
+      map((data: any) => {
         localStorage.setItem('auth_token', data.token);
+        this.usuario = data.usuario;
+        localStorage.setItem('auth_user', data.usuario);
+        return true;
       }),
-      map(data => true),
       catchError(err => of(false))
     );
   }

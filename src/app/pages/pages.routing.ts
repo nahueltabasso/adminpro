@@ -9,6 +9,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesaComponent } from './promesa/promesa.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
     { 
@@ -21,7 +22,8 @@ const routes: Routes = [
             { path: 'grafica1', component: GraficaOneComponent, data: { titulo: 'Grafica Nro 1' } },      
             { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajuste de Cuenta' } },     
             { path: 'promesas', component: PromesaComponent, data: { titulo: 'Promesa' } },               
-            { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RXJS' }  },               
+            { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RXJS' }  },        
+            { path: 'perfil', component: PerfilComponent, data: { titulo: 'Perfil de Usuario' }  },                      
         ]
     },
 ];

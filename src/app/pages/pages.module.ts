@@ -13,6 +13,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesaComponent } from './promesa/promesa.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { UsuariosComponent } from './mantenedores/usuarios/usuarios.component';
+import { MedicosComponent } from './mantenedores/medicos/medicos.component';
+import { HospitalesComponent } from './mantenedores/hospitales/hospitales.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { PerfilComponent } from './perfil/perfil.component';
     AccountSettingsComponent,
     PromesaComponent,
     RxjsComponent,
-    PerfilComponent
+    PerfilComponent,
+    UsuariosComponent,
+    MedicosComponent,
+    HospitalesComponent
   ],
   imports: [
     CommonModule,

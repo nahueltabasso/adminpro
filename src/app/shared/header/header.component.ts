@@ -39,4 +39,10 @@ export class HeaderComponent implements OnInit {
     return `${this.url}/uploads/usuarios/${this.usuario.img}`;
   }
 
+  public buscar(txtTermino: string) {
+    if (txtTermino.length === 0) {
+      return this.router.navigateByUrl('/dashboard');
+    }
+    this.router.navigateByUrl('/dashboard/search/' + txtTermino);
+  }
 }

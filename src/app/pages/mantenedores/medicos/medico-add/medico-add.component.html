@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Formulario Alta Medico</h4>
+                <h6 class="card-subtitle">Datos del Medico</h6>
+                <form class="form-horizontal p-t-20" [formGroup]="formulario">
+                    <div class="form-group row">
+                        <label for="exampleInputuname3" class="col-sm-3 control-label">Nombre*</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-user"></i></div>
+                                <input type="text" class="form-control" id="exampleInputuname3" placeholder="Nombre del medico" formControlName="nombre">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputEmail3" class="col-sm-3 control-label">Apellido*</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-user"></i></div>
+                                <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Apellido del medico" formControlName="apellido">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputEmail3" class="col-sm-3 control-label">Hospitales*</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <select class="form-control" formControlName="hospital">
+                                    <option value="">Seleccione un Hospital</option>
+                                    <option *ngFor="let hospital of comboHospital" [value]="hospital._id">{{ hospital.nombre }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row m-b-0">
+                        <div class="offset-sm-3 col-sm-9">
+                            <button type="submit" class="btn btn-success waves-effect waves-light" [disabled]="formulario.invalid" (click)="save()">
+                                <i class="fa fa-save"></i>
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card" *ngIf="medicoSeleccionado">
+            <div class="card-body">
+                <h4 class="card-title">Fotografia del Medico</h4>
+                <div class="form-group row">
+                    <label for="exampleInputuname3" class="col-sm-3 control-label">Fotografia</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <img [src]="medicoSeleccionado.img | imagen: 'medicos'" class="img-avatar" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" *ngIf="hospitalSeleccionado">
+            <div class="card-body">
+                <h4 class="card-title">Fotografia del Hospital</h4>
+                <div class="form-group row">
+                    <label for="exampleInputuname3" class="col-sm-3 control-label">{{ hospitalSeleccionado.nombre }}</label>
+                    <div class="col-sm-9">
+                        <div class="input-group text-center">
+                            <img [src]="hospitalSeleccionado.img | imagen: 'hospitales'" class="img-avatar" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

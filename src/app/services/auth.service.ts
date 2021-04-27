@@ -25,6 +25,7 @@ export class AuthService {
                .pipe(
                  tap((rta: any) => {
                     localStorage.setItem('auth_token', rta.token);
+                    localStorage.setItem('menu', JSON.stringify(rta.menu));
                  })
                );
   }
@@ -34,12 +35,14 @@ export class AuthService {
                .pipe(
                  tap((rta: any) => {
                     localStorage.setItem('auth_token', rta.token);
+                    localStorage.setItem('menu', JSON.stringify(rta.menu));
                  })
                );
   }
 
   logout() {
     localStorage.removeItem('auth_token');
+    localStorage.removeItem('menu');
     this.auth2.signOut().then(function () {
       console.log('User signed out.');
     });
@@ -52,6 +55,7 @@ export class AuthService {
         localStorage.setItem('auth_token', data.token);
         this.usuario = data.usuario;
         localStorage.setItem('auth_user', data.usuario);
+        localStorage.setItem('menu', JSON.stringify(data.menu));
         return true;
       }),
       catchError(err => of(false))
@@ -66,5 +70,9 @@ export class AuthService {
         cookiepolicy: 'single_host_origin',
       });
     });
+  }
+
+  get roleUsuario(): string {
+    return this.usuario.role;
   }
 }

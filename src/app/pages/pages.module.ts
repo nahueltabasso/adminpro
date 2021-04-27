@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
+import { PipesModule } from '../pipes/pipes.module';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -16,6 +17,9 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { UsuariosComponent } from './mantenedores/usuarios/usuarios.component';
 import { MedicosComponent } from './mantenedores/medicos/medicos.component';
 import { HospitalesComponent } from './mantenedores/hospitales/hospitales.component';
+import { MedicoAddComponent } from './mantenedores/medicos/medico-add/medico-add.component';
+import { MedicoEditComponent } from './mantenedores/medicos/medico-edit/medico-edit.component';
+import { BusquedasComponent } from './busquedas/busquedas.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,10 @@ import { HospitalesComponent } from './mantenedores/hospitales/hospitales.compon
     PerfilComponent,
     UsuariosComponent,
     MedicosComponent,
-    HospitalesComponent
+    HospitalesComponent,
+    MedicoAddComponent,
+    MedicoEditComponent,
+    BusquedasComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +44,8 @@ import { HospitalesComponent } from './mantenedores/hospitales/hospitales.compon
     SharedModule,
     RouterModule,
     ComponentsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
   ],
   exports: [
     DashboardComponent,

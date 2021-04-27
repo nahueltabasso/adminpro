@@ -20,6 +20,7 @@ export class SidebarComponent implements OnInit {
               private authService: AuthService) {}
 
   ngOnInit(): void {
+    this.sidebarService.cargarMenu();
     this.menuItems = this.sidebarService.menu;
     this.usuario = this.authService.usuario
     this.imgUrl = this.getUrlImagen();

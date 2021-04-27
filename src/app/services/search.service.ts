@@ -9,9 +9,14 @@ import { Usuario } from '../models/usuario.model';
 })
 export class SearchService {
 
-  endpoint = environment.based_endpoint + '/collecion';
+  endpoint = environment.based_endpoint + '/todo';
+  
 
   constructor(private http: HttpClient) {}
+
+  search(termino: string): Observable<any> {
+    return this.http.get<any>(this.endpoint + '/' + termino, { headers: { 'Authorization': localStorage.getItem('auth_token') } });
+  }
 
 
 }
